@@ -17,14 +17,14 @@ import java.util.*
 @RunWith(CamelSpringBootRunner::class)
 @DisableJmx
 @MockEndpoints
-class CamelEndpointTest  {
+class CamelEndpointTest {
     @Autowired
     lateinit var producerTemplate: ProducerTemplate
 
-    @EndpointInject(uri = "mock:jms:testQueue")
+    @EndpointInject(uri = "mock:jms:receiveQueue")
     lateinit var mockEndpoint: MockEndpoint
 
-    @Value("\${app.queue}")
+    @Value("\${app.queue.receive}")
     val queue: String = ""
 
     @Test

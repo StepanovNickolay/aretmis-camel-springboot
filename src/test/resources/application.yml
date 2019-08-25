@@ -3,4 +3,7 @@ spring:
     active: test
 
 app:
-  queue: testQueue
+  queue:
+    receive: receiveQueue
+    produce: produceQueue
+

@@ -10,11 +10,15 @@ import org.springframework.stereotype.Component
 class Routes: RouteBuilder() {
     val logger = LoggerFactory.getLogger(javaClass)
 
-    @Value("\${app.queue}")
-    val queue: String = ""
+    @Value("\${app.queue.receive}")
+    val receiveQueue: String = ""
+
+    @Value("\${app.queue.produce}")
+    val produceQueue: String = ""
 
     override fun configure() {
-        from("jms:$queue")
+        from("jms:$receiveQueue")
                 .log(LoggingLevel.INFO, logger,"Msg received \${body}")
+                .to("jms:$produceQueue")
     }
 }

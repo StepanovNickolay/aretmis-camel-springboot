@@ -1,5 +1,7 @@
 server:
   port: 7111
+  servlet:
+    context-path: /ws-app
 
 spring:
   artemis:
@@ -18,4 +20,6 @@ camel:
         context-path: /*
 
 app:
-  queue: testQueue
+  queue:
+    receive: receiveQueue
+    produce: produceQueue
