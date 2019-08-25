@@ -1,0 +1,21 @@
+server:
+  port: 7111
+
+spring:
+  artemis:
+    embedded:
+      queues: ${app.queue}
+    mode: embedded
+    host: localhost
+    port: 61611
+    user: admin
+    password: admin
+
+camel:
+  component:
+    servlet:
+      mapping:
+        context-path: /*
+
+app:
+  queue: testQueue

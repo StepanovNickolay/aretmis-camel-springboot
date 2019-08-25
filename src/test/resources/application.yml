@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: test
+
+app:
+  queue: testQueue
